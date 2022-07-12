@@ -43,7 +43,7 @@ emotion_model.add(Flatten())
 emotion_model.add(Dense(1024, activation='relu'))
 emotion_model.add(Dropout(0.5))
 emotion_model.add(Dense(7, activation='softmax'))
-# emotion_model.load_weights('emotion_model.h5')
+
 
 cv2.ocl.setUseOpenCL(False)
 
@@ -59,7 +59,7 @@ emotion_model_info = emotion_model.fit_generator(
         validation_steps=7178 // 64)
 emotion_model.save_weights('emotion_model.h5')
 
-# start the webcam feed
+
 cap = cv2.VideoCapture(0)
 while True:
     # Find haar cascade to draw bounding box around face
